@@ -15,9 +15,13 @@ use App\Models\Listing;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/',function(){
+//     return view('listings',[
+//         'heading'=>'Job Listing',
+//        'listings'=> Listing::all()
+    
+//     ]);
+//     });
 // Route::get('/post/{id}',function($id){
 //     ddd($id);
 //     return "<h1>Post $id </h1>";
@@ -27,7 +31,7 @@ Route::get('/', function () {
 //     return $req->name." ".$req->city;
 
 // });
-Route::get('/listings',function(){
+Route::get('/',function(){
 return view('listings',[
     'heading'=>'Job Listing',
    'listings'=> Listing::all()
@@ -35,11 +39,9 @@ return view('listings',[
 ]);
 });
 
-Route::get('listings/{id}',function($id){
+Route::get('listings/{listing}',function(Listing $listing){
     return view('listing',[
-        'listing'=>Listing::find($id)
+        'listing'=>$listing
     ]);
-
-
 });
 
